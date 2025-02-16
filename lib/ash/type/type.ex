@@ -38,6 +38,7 @@ defmodule Ash.Type do
     integer: Ash.Type.Integer,
     file: Ash.Type.File,
     float: Ash.Type.Float,
+    duration: Ash.Type.Duration,
     duration_name: Ash.Type.DurationName,
     function: Ash.Type.Function,
     boolean: Ash.Type.Boolean,
@@ -378,8 +379,8 @@ defmodule Ash.Type do
   ## Coercion vs Casting
 
   Coercion can be summed up as a more "insistent" form of casting. It means "we really want to use
-  this value as this type, so please try to convert it to that type". This is used in expressions as 
-  opposed to `cast_input`. For example, the value `10`, if passed into `Ash.Type.cast_input(:string, 10)` 
+  this value as this type, so please try to convert it to that type". This is used in expressions as
+  opposed to `cast_input`. For example, the value `10`, if passed into `Ash.Type.cast_input(:string, 10)`
   would fail to cast. However, if used in the following expression: `expr(type(10, :string) <> " minutes")`
   the `10` would be "coerced" (using `to_string/1`) into `"10"`.
 
